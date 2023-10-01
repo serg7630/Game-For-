@@ -22,12 +22,25 @@ public class TowerDetector : MonoBehaviour
         
     }
 
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        GameObject GO = collision.gameObject;
+        if (GO.tag == "enemy")
+        {
+            
+            GO.GetComponent<enemy>().inDetector = true;
+           
+        }
+    }
     public void OnTriggerEnter2D(Collider2D collision)
     {
         
         GameObject GO=collision.gameObject;
         if (GO.tag == "enemy")
         {
+            GO.GetComponent<enemy>().ShowMaterial();
+            GO.GetComponent<enemy>().ChangeColor=false;
+            GO.GetComponent<enemy>().inDetector = true ;
             render.material = DangerMat;
             enemyCount++;
         }
@@ -38,6 +51,8 @@ public class TowerDetector : MonoBehaviour
         GameObject GO = collision.gameObject;
         if (GO.tag == "enemy")
         {
+            GO.GetComponent<enemy>().inDetector = false;
+            GO.GetComponent<enemy>().StelsMaterial();
             enemyCount--;
             if(enemyCount == 0) render.material = defaultMat;
         }

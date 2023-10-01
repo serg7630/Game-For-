@@ -6,19 +6,38 @@ public class enemy : MonoBehaviour
 {
     public int Health = 1;
     public Transform Target;
+    public bool Gametrue=true;
 
     public float RoatationSpeed = 0.010f;
     public float speed = 3;
 
     private Rigidbody2D RB;
+
+    [Header("Изминение цвета")]
+    public float currentTime = 0;
+    public Renderer R;
+    public Material Mat;
+
+    public bool inDetector = false;
+    public bool ChangeColor = false;
+
+
+    public float duration = 3;
+
+
     void Start()
     {
         RB= GetComponent<Rigidbody2D>();
+        //R=GetComponent<Renderer>();
+        Mat = R.material;
+        Gametrue = true;
     }
 
 
     void Update()
     {
+        if (!Gametrue) return;
+
         if (!Target)
         {
             GetTarget();
@@ -27,6 +46,27 @@ public class enemy : MonoBehaviour
         {
             RotatedTarget();
         };
+
+
+        if (inDetector) 
+        {
+            Color c = Mat.color;
+            c.a = 1;
+            Mat.color = c;
+            currentTime = 0;
+        }
+        else
+        {
+            
+                currentTime += Time.deltaTime;
+                float alpha = 1.0f - currentTime / duration;
+                //print(alpha);
+                Color color = Mat.color;
+                color.a = alpha;
+                Mat.color = color;
+            
+        }
+
     }
     private void FixedUpdate()
     {
@@ -34,6 +74,7 @@ public class enemy : MonoBehaviour
     }
     private void GetTarget()
     {
+        
         Target = GameObject.FindGameObjectWithTag("Player").transform;
 
 
@@ -52,6 +93,22 @@ public class enemy : MonoBehaviour
         if (Health <= 0) {
             Health = 0;
             Destroy(gameObject);
+            GameManager.S.DeliteEnemy();
+            //SpawnEnemy.S.SpawnGameEnemy();
         }
+    }
+
+    public void ShowMaterial()
+    {
+        if (ChangeColor ==true) ChangeColor = false;
+        //Debug.LogError("showmat");
+        Color c = Mat.color;
+        c.a = 1f;
+        Mat.color = c;
+    }
+    public void StelsMaterial()
+    {
+        //if (inDetector) return;
+        //ChangeColor = true;
     }
 }

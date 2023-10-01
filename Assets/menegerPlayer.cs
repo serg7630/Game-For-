@@ -5,6 +5,9 @@ using UnityEngine;
 public class menegerPlayer : MonoBehaviour
 {
     public int Health = 5;
+
+    public GameObject[] spawnPos;
+
     void Start()
     {
         
@@ -33,6 +36,7 @@ public class menegerPlayer : MonoBehaviour
         if (Health <= 0)
         {
             Destroy(gameObject);
+            GameManager.S.gameOver();
         }
     }
 }

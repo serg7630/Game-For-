@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.013207495, b: 0.013207495, a: 1}
+  m_Color: {r: 1, g: 0.013207495, b: 0.013207495, a: 0.92156863}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -118,7 +118,7 @@ Transform:
   - {fileID: 985848329149226244}
   - {fileID: 4441235335441748319}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &985848329455006327
 Rigidbody2D:
@@ -156,7 +156,13 @@ MonoBehaviour:
   Health: 1
   Target: {fileID: 0}
   RoatationSpeed: 0.01
-  speed: 3
+  speed: 1.5
+  currentTime: 0
+  R: {fileID: 985848329149226246}
+  Mat: {fileID: 0}
+  inDetector: 0
+  ChangeColor: 0
+  duration: 3
 --- !u!70 &853575953
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -189,7 +195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4441235335441748319
 Transform:
   m_ObjectHideFlags: 0
