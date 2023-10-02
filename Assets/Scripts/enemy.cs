@@ -8,6 +8,8 @@ public class enemy : MonoBehaviour
     public Transform Target;
     public bool Gametrue=true;
 
+    public int Score = 100;
+
     public float RoatationSpeed = 0.010f;
     public float speed = 3;
 
@@ -31,6 +33,7 @@ public class enemy : MonoBehaviour
         //R=GetComponent<Renderer>();
         Mat = R.material;
         Gametrue = true;
+        GetTarget();
     }
 
 
@@ -40,7 +43,8 @@ public class enemy : MonoBehaviour
 
         if (!Target)
         {
-            GetTarget();
+            return;
+            //GetTarget();
         }
         else
         {
@@ -74,7 +78,7 @@ public class enemy : MonoBehaviour
     }
     private void GetTarget()
     {
-        
+
         Target = GameObject.FindGameObjectWithTag("Player").transform;
 
 
@@ -92,7 +96,9 @@ public class enemy : MonoBehaviour
         Health -= damage;
         if (Health <= 0) {
             Health = 0;
+            GameManager.S.AddScore(Score);
             Destroy(gameObject);
+            creating_a_tower.S.addTowerForEnemy();
             GameManager.S.DeliteEnemy();
             //SpawnEnemy.S.SpawnGameEnemy();
         }

@@ -14,10 +14,14 @@ public class GameManager : MonoBehaviour
 
     public int Levelgame=1;
     public int EnemyCount;
+    public int ScoreCount=0;
 
 
     [SerializeField] TMP_Text level;
     [SerializeField] TMP_Text Enemys;
+    [SerializeField] TMP_Text Score;
+
+
     void Awake()
     {
         if (S == null) S = this;
@@ -25,6 +29,7 @@ public class GameManager : MonoBehaviour
         GameObject[] enem = GameObject.FindGameObjectsWithTag("enemy");
         EnemyCount = enem.Length;
         showEnemyCount();
+        
     }
 
     
@@ -32,6 +37,10 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+   
+
+
     public void gamePause()
     {
         PanelPause.SetActive(true);
@@ -50,6 +59,12 @@ public class GameManager : MonoBehaviour
         EnemyCount--;
         showEnemyCount();
     }
+
+    public void AddScore(int score)
+    {
+        ScoreCount+=score;
+        showEnemyCount();
+    }
     public void AddCountEnemy()
     {
         EnemyCount++;
@@ -58,6 +73,9 @@ public class GameManager : MonoBehaviour
     public void showEnemyCount()
     {
         Enemys.text=EnemyCount.ToString();
+        Score.text=ScoreCount.ToString();
+
+
     }
 
     public void stopGame()
@@ -76,6 +94,7 @@ public class GameManager : MonoBehaviour
     }
     public void GameStart()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 }

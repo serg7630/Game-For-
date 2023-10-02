@@ -6,6 +6,11 @@ public class TowerDetector : MonoBehaviour
 {
     public Renderer render;
 
+    SpriteRenderer SR;
+    public GameObject ObjectSprite;
+    public Sprite defaultSprite;
+    public Sprite DangertSprite;
+
     public Material defaultMat;
     public Material DangerMat;
 
@@ -13,7 +18,7 @@ public class TowerDetector : MonoBehaviour
 
     void Start()
     {
-        
+         SR = ObjectSprite.GetComponent<SpriteRenderer>();
     }
 
     
@@ -42,6 +47,9 @@ public class TowerDetector : MonoBehaviour
             GO.GetComponent<enemy>().ChangeColor=false;
             GO.GetComponent<enemy>().inDetector = true ;
             render.material = DangerMat;
+            SR.sprite = DangertSprite;
+            
+
             enemyCount++;
         }
     }
@@ -54,7 +62,10 @@ public class TowerDetector : MonoBehaviour
             GO.GetComponent<enemy>().inDetector = false;
             GO.GetComponent<enemy>().StelsMaterial();
             enemyCount--;
-            if(enemyCount == 0) render.material = defaultMat;
+            if (enemyCount == 0) {
+                SR.sprite = defaultSprite;
+                render.material = defaultMat;
+            }
         }
     }
 

@@ -74,8 +74,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4433ab8e56b7d9b4d996d39f1ed6fc24, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 527215206, guid: 0f13e054d70300341890d2bd2da6fa6b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,7 +114,7 @@ EdgeCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043426552286498465}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -156,7 +156,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2427460188323779685}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.03, z: 0.019956388}
+  m_LocalPosition: {x: -0.11, y: -0.15, z: 0.019956388}
   m_LocalScale: {x: 13.668203, y: 13.668203, z: 13.668203}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -241,7 +241,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6892611140009649193}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3025727, y: 1.2214065, z: -0.019956388}
+  m_LocalPosition: {x: 5.98, y: 1.77, z: -0.019956388}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -263,7 +263,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.95}
+  m_Offset: {x: 0, y: -0.2}
   serializedVersion: 2
   m_Radius: 6.89
 --- !u!114 &3815935770936289755
@@ -279,5 +279,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   render: {fileID: 8975029807486097350}
+  ObjectSprite: {fileID: 1043426552286498465}
+  defaultSprite: {fileID: 527215206, guid: 0f13e054d70300341890d2bd2da6fa6b, type: 3}
+  DangertSprite: {fileID: 1131940675, guid: 0f13e054d70300341890d2bd2da6fa6b, type: 3}
   defaultMat: {fileID: 2100000, guid: ae7f8020ac069234c93a845c3917d814, type: 2}
   DangerMat: {fileID: 2100000, guid: 24d84d953b0124d449be1719025d89d8, type: 2}
+  enemyCount: 0
